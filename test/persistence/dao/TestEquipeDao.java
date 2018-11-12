@@ -2,11 +2,10 @@ package persistence.dao;
 
 import java.util.List;
 
-import Business.entitie.Singer;
-import Persistence.dao.SingerDao;
-import persist.pere.TU_Pere;
+import business.entitie.Singer;
+import persistence.father.TestUnitDao;
 
-public class TestEquipeDao extends TU_Pere {
+public class TestEquipeDao extends TestUnitDao {
 
 	private SingerDao sd;
 
@@ -56,10 +55,10 @@ public class TestEquipeDao extends TU_Pere {
 		// TEST CHAMPS
 		Singer eFind = sd.findById(singer.getId());
 		assertEquals(singer.getId(), eFind.getId());
-		assertEquals(singer.getprenom(), eFind.getprenom());
-		assertEquals(singer.getnom(), eFind.getnom());
-		assertEquals(singer.getsalaire(), eFind.getsalaire());
-		assertEquals(singer.getage(), eFind.getage());
+		assertEquals(singer.getPrenom(), eFind.getPrenom());
+		assertEquals(singer.getNom(), eFind.getNom());
+		assertEquals(singer.getSalaire(), eFind.getSalaire());
+		assertEquals(singer.getAge(), eFind.getAge());
 
 		// # CAS LIMITES #
 		Singer result = sd.create(null);
@@ -72,14 +71,14 @@ public class TestEquipeDao extends TU_Pere {
 
 		// # CAS NORMAUX #
 		// TEST CHAMPS
-		Singer singer = new Singer(0, "Rocky", "Balboa", 11000, 34);
+		Singer singer = new Singer(1, "Rocky", "Balboa", 11000, 34);
 		sd.updateById(singer);
 		Singer aFind = sd.findById(singer.getId()); // affectation sur objet aFind par la méthode FindById;
-		assertEquals(singer.getId(), eFind.getId());
-		assertEquals(singer.getprenom(), eFind.getprenom());
-		assertEquals(singer.getnom(), eFind.getnom());
-		assertEquals(singer.getsalaire(), eFind.getsalaire());
-		assertEquals(singer.getage(), eFind.getage());
+		assertEquals(singer.getId(), aFind.getId());
+		assertEquals(singer.getPrenom(), aFind.getPrenom());
+		assertEquals(singer.getNom(), aFind.getNom());
+		assertEquals(singer.getSalaire(), aFind.getSalaire());
+		assertEquals(singer.getAge(), aFind.getAge());
 
 
 		// # CAS LIMITE #
